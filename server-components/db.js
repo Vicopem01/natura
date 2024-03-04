@@ -1,12 +1,23 @@
-import mongoose from "mongoose";
+import { MongoClient } from "mongodb";
 
-mongoose.set("strictQuery", true);
-export const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
+const uri = process.env.MONGODB_URI;
+
+let client;
+let clientPromise;
+
+if (!process.env.MONGODB_URI) {
+  throw new Error("Add Mongo URI to .env.local");
+}
+
+if (process.env.NODE_ENV === "development") {
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri);
+    global._mongoClientPromise = client.connect();
   }
-};
+  clientPromise = global._mongoClientPromise;
+} else {
+  client = new MongoClient(uri);
+  clientPromise = client.connect();
+}
+
+export default clientPromise;

@@ -1,28 +1,29 @@
-import { connectDB } from "@/server-components/db";
-import { emailModel } from "@/server-components/email.model";
+import clientPromise from "@/server-components/db";
 import { isValidEmail } from "@/utils/regex";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    await connectDB();
     const { email } = await req.json();
-    console.log(email);
+    const client = await clientPromise;
+    const db = client.db("natura");
     if (!email || !isValidEmail(email))
       return NextResponse.json(
         { message: "Email address is required" },
         { status: 201 }
       );
 
-    const user = await emailModel.findOne({ email });
+    const user = await db.collection("emails").findOne({ email });
     if (user) {
       return NextResponse.json(
         { message: "Email address already exists" },
         { status: 201 }
       );
     }
-    await emailModel.create({
+    await db.collection("emails").insertOne({
       email,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     return NextResponse.json(
@@ -31,5 +32,9 @@ export async function POST(req) {
     );
   } catch (error) {
     console.log(error);
+    return NextResponse.json(
+      { message: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }

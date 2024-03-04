@@ -3,8 +3,6 @@ import ig from "@/public/icons/ig.png";
 import x from "@/public/icons/x.png";
 import linkedin from "@/public/icons/linkedin.png";
 import tiktok from "@/public/icons/tiktok.png";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 
@@ -27,15 +25,27 @@ const SOCIALS = [
   },
 ];
 
+const ButtonLoader = () => {
+  return (
+    <div className="relative h-[20px] w-full bg-transparent p-3">
+      <div className="absolute top-2/4 left-2/4 box-content h-[18px] w-[18px] -translate-y-2/4 -translate-x-2/4 animate-roll rounded-full border-[4px] border-white border-t-transparent"></div>
+    </div>
+  );
+};
+
 const ComingSoon = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+    setIsLoading(true);
     try {
       axios.post("/api/newsletter", { email: email.trim() });
+      setIsLoading(false);
+      setIsSaved(true);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -57,15 +67,18 @@ const ComingSoon = () => {
           >
             Join our mailing list
           </label>
-          <button
-            className={`${
-              email ? "bg-emerald-900" : "bg-gray-300	"
-            } text-white rounded-full py-2 px-3 mt-5`}
-          >
-            Submit Email
-          </button>
+          {!isSaved && (
+            <button
+              className={`${
+                email ? "bg-emerald-900" : "bg-gray-300	"
+              } text-white rounded-full py-2 mt-5 w-32`}
+            >
+              {isLoading ? <ButtonLoader /> : "Submit Email"}
+            </button>
+          )}
         </div>
       </form>
+      {isSaved && <p>Email added successfully</p>}
     </div>
   );
 };
