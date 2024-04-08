@@ -51,8 +51,10 @@ const AllGrants = () => {
       <div className="px-16">
         {grants.map((data, idx) => (
           <Fragment key={idx}>
-            <div className="my-4 font-medium">
-              <h3 className="font-bold text-2xl">{data.title}</h3>
+            <div className="my-5 font-medium">
+              <h3 className="font-bold text-2xl text-[#10B981]">
+                {data.title}
+              </h3>
               <p className="py-2">{data.desc}</p>
               <p>Some of the benefits of this grants are:</p>
               <ul className="list-disc">
@@ -63,7 +65,7 @@ const AllGrants = () => {
                 ))}
               </ul>
               <a
-                className="text-cyan-400	underline"
+                className="text-[#10B981] underline"
                 href={data.link}
                 target="_blank"
                 rel="noferrer"
