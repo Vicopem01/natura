@@ -1,37 +1,8 @@
 "use client";
-import ig from "@/public/icons/ig.png";
-import x from "@/public/icons/x.png";
-import linkedin from "@/public/icons/linkedin.png";
-import tiktok from "@/public/icons/tiktok.png";
+
 import { useState } from "react";
 import axios from "axios";
-
-const SOCIALS = [
-  {
-    url: "",
-    image: ig,
-  },
-  {
-    url: "",
-    image: x,
-  },
-  {
-    url: "",
-    image: linkedin,
-  },
-  {
-    url: "",
-    image: tiktok,
-  },
-];
-
-const ButtonLoader = () => {
-  return (
-    <div className="relative h-[20px] w-full bg-transparent p-3">
-      <div className="absolute top-2/4 left-2/4 box-content h-[18px] w-[18px] -translate-y-2/4 -translate-x-2/4 animate-roll rounded-full border-[4px] border-white border-t-transparent"></div>
-    </div>
-  );
-};
+import ButtonLoader from "@/components/UI/ButtonLoader";
 
 const ComingSoon = () => {
   const [email, setEmail] = useState("");
@@ -51,7 +22,7 @@ const ComingSoon = () => {
 
   return (
     <div className="text-center py-16">
-      <p className="text-emerald-900 text-2xl font-bold"></p>
+      {/* <p className="text-emerald-900 text-2xl font-bold"></p> */}
       <form onSubmit={handleSubmit}>
         <div className="relative bg-inherit w-full max-w-96 mx-auto my-5">
           <input

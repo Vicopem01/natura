@@ -6,10 +6,10 @@ import Link from "next/link";
 const CTAButton = () => {
   return (
     <Link
-      href="/begin"
+      href="/eligibility"
       className="py-3 px-4 bg-emerald-900 rounded-full text-white"
     >
-      Get Started
+      Check Elegibility
     </Link>
   );
 };
