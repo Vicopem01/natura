@@ -25,7 +25,7 @@ const Header = () => {
       <div className="">
         {NAV_LINKS.map((el, i) => (
           <Link
-            href="/"
+            href={el.link || "/"}
             className="py-3 px-5 font-semibold hidden md:inline"
             key={i}
           >

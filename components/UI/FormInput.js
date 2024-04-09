@@ -1,6 +1,6 @@
 const FormInput = ({ type, id, placeholder, onChange, label, value }) => {
   return (
-    <div className="relative bg-inherit w-full max-w-96 mx-auto my-5">
+    <div className="relative bg-inherit w-full max-w-96 mx-auto">
       <input
         type={type || "text"}
         id={id}

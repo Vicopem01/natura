@@ -4,25 +4,31 @@ import Header from "@/components/UI/Header";
 import StageIntro from "@/components/sections/eligibility/StageIntro";
 import Stage1 from "@/components/sections/eligibility/Stage1";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect } from "react";
+import Stage2 from "@/components/sections/eligibility/Stage2";
+import Success from "@/components/sections/eligibility/Success";
+import Stage3 from "@/components/sections/eligibility/Stage3";
 
 const Elegibility = () => {
   const searchParams = useSearchParams();
-  const [stage, setStage] = useState("");
+  const stage = searchParams.get("stage");
   const router = useRouter();
   useEffect(() => {
-    const stageRoute = searchParams.get("stage");
-    if (!stageRoute) router.push("/eligibility?stage=start");
-    else setStage(stageRoute);
+    if (!stage) router.push("/eligibility?stage=start");
   }, []);
 
   return (
-    <Suspense>
+    <>
       <Header />
-      {stage === "start" && <StageIntro />}
-      {stage === "1" && <Stage1 />}
+      <div className="my-5">
+        {stage === "start" && <StageIntro />}
+        {stage === "1" && <Stage1 />}
+        {stage === "2" && <Stage2 />}
+        {stage === "3" && <Stage3 />}
+        {stage === "success" && <Success />}
+      </div>
       <Footer />
-    </Suspense>
+    </>
   );
 };
 

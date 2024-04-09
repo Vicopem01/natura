@@ -1,5 +1,6 @@
 import Button from "@/components/UI/Button";
 import FormInput from "@/components/UI/FormInput";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
@@ -21,23 +22,34 @@ const Stage1 = () => {
     }));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(data);
+    const res = await axios.post("/api/eligible", data);
+    router.push(`/eligibility?stage=2&id=${res.data.id}`);
+  };
+
   return (
-    <div className="text-lg font-medium">
-      <div>
-        <FormInput
-          label={"First and Last Name"}
-          id="Name"
-          value={data.name}
-          onChange={(e) => handleChange("name", e.target.value)}
-          placeholder={"First and Last Name"}
-        />
-        <FormInput
-          label={"Email Address"}
-          value={data.email}
-          id="Email Address"
-          placeholder="Email Address"
-          onChange={(e) => handleChange("email", e.target.value)}
-        />
+    <div className="text-sm font-normal">
+      <form onSubmit={handleSubmit} className="block">
+        <div>
+          <FormInput
+            label={"First and Last Name"}
+            id="Name"
+            value={data.name}
+            onChange={(e) => handleChange("name", e.target.value)}
+            placeholder={"First and Last Name"}
+          />
+        </div>
+        <div className="my-8 block">
+          <FormInput
+            label={"Email Address"}
+            value={data.email}
+            id="Email Address"
+            placeholder="Email Address"
+            onChange={(e) => handleChange("email", e.target.value)}
+          />
+        </div>
         <FormInput
           label={"Phone"}
           type="phone"
@@ -46,7 +58,7 @@ const Stage1 = () => {
           value={data.phone}
           onChange={(e) => handleChange("phone", e.target.value)}
         />
-        <div className="w-full max-w-96 mx-auto my-5 border-emerald-900">
+        <div className="w-full max-w-96 mx-auto my-8 block border-emerald-900">
           <GooglePlacesAutocomplete
             apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
             autocompletionRequest={{
@@ -62,6 +74,8 @@ const Stage1 = () => {
                 input: (provided) => ({
                   ...provided,
                   color: "#12082D",
+                  // border: "2px solid #064E3B",
+                  borderRadius: "8px",
                 }),
                 option: (provided) => ({
                   ...provided,
@@ -71,21 +85,26 @@ const Stage1 = () => {
                   ...provided,
                   color: "#12082D",
                 }),
+                container: (provided) => ({
+                  ...provided,
+                  border: "2px solid #064E3B",
+                  borderRadius: "8px",
+                }),
               },
             }}
           />
-          <FormInput
-            label={"Postal Code"}
-            placeholder="Postal Code"
-            id="Postal Code"
-            value={data.phone}
-            onChange={(e) => handleChange("postalCode", e.target.value)}
-          />
         </div>
-        <div className="text-center mb-6" >
-          <Button>Submit data</Button>
+        <FormInput
+          label={"Postal Code"}
+          placeholder="Postal Code"
+          id="Postal Code"
+          value={data.postalCode}
+          onChange={(e) => handleChange("postalCode", e.target.value)}
+        />
+        <div className="text-center my-6">
+          <Button type="submit">Submit data</Button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
