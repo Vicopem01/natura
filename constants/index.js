@@ -125,10 +125,6 @@ export const ELIGIBILITY_QUESTIONS_1 = [
     type: "checkbox",
   },
   {
-    question: "Are you an owner of some multi-unit residential buildings?",
-    type: "checkbox",
-  },
-  {
     question:
       "Have you completed a pre-retrofit energy audit and at least one recommended retrofit?",
     type: "checkbox",
