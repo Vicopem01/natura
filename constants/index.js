@@ -33,7 +33,8 @@ export const FOOTER_LINKS = [
     title: "Our Services",
     links: [
       {
-        text: "Residential",
+        text: "Grants",
+        link: "/grants",
       },
       {
         text: "Storage & Transportation",

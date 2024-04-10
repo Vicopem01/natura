@@ -11,7 +11,11 @@ const Footer = () => {
           <div key={i}>
             <p className="text-xl brand-text">{el.title}</p>
             {el.links.map((link, i) => (
-              <Link key={`footer-${i}`} href="/" className="block my-3">
+              <Link
+                key={`footer-${i}`}
+                href={link.link || "/"}
+                className="block my-3"
+              >
                 {link.text}
               </Link>
             ))}
@@ -21,7 +25,7 @@ const Footer = () => {
       <div className="flex justify-between items-center bg-emerald-950">
         <Image src={Logo} alt="" width={80} height={80} />
         <div className="flex flex-col md:flex-row text-sm">
-          <Link className="block mx-2 px-2" href="/">
+          <Link className="block mFx-2 px-2" href="/">
             Privacy Policy
           </Link>
           <Link className="block mx-2 px-2" href="/">
