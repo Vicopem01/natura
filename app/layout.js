@@ -6,7 +6,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 export const metadata = {
   title: "Natura - Net Zero Homes",
   description:
-    "Retrofit your homes to achivie net zero with Government Incentives",
+    "Retrofit your homes to achieve net zero with Government Incentives",
 };
 
 export default function RootLayout({ children }) {
