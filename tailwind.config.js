@@ -12,6 +12,14 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        yellow: "#FCBF01",
+        green: {
+          DEFAULT: "#064E3B",
+          light: "#49CFA3",
+          dark: "#012C23",
+        },
+      },
       keyframes: {
         roll: {
           "0%": {

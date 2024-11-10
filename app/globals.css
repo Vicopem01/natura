@@ -45,3 +45,7 @@
     background: rgb(16 185 129);
   }
 }
+
+.section {
+  @apply mx-auto w-10/12 max-w-[2048px];
+}
