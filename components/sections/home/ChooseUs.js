@@ -28,7 +28,9 @@ const ChooseUs = () => {
             <h2 className="text-4xl font-semibold mb-6">
               Let the experts manage the renovations for you, start to finish
             </h2>
-            <Button>Get Started</Button>
+            <Button type="link" href="/apply">
+              Get Started
+            </Button>
           </div>
         </div>
       </div>

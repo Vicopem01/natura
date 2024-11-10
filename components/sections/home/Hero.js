@@ -17,7 +17,9 @@ const Hero = () => {
           Get Expert Help Navigating Home Renovation, <br />
           Incentives and Funding
         </p>
-        <Button>Get Started</Button>
+        <Button type="link" href="/apply">
+          Get Started
+        </Button>
       </div>
       <div className="flex-1 max-w-lg max-h-lg">
         <Image src={HeroImg} alt="" />
