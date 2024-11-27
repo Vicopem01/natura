@@ -5,24 +5,44 @@ import { useState } from "react";
 
 const FAQs = [
   {
-    question: "What is Webflow and why is it the best website builder?",
+    question: "What do we do?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We specialize in finding grants, incentives, and rebates for home retrofitting, clean energy installations, and general home improvement projects. We assist with applications, offer ongoing support, and connect you with trusted contractors to complete your project.",
   },
   {
-    question: "What is your favorite template from BRIX Templates?",
+    question: "Who can use your service?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Homeowners, landlords, and businesses planning retrofitting or clean energy projects are eligible. We tailor solutions based on individual needs and eligibility criteria.",
   },
   {
-    question: "How do you clone a Webflow Template from the Showcase?",
+    question: "What types of projects do you support?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We support energy-efficient retrofitting, solar panel installations, heat pumps, insulation upgrades, energy-efficient appliances, and general home improvement projects.",
   },
   {
-    question: "What is Webflow and why is it the best website builder?",
+    question: "How do you find the grants and incentives?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We use proprietary tools and databases to identify local, state, and federal programs as well as private initiatives that align with your project.",
+  },
+  {
+    question: "Am I guaranteed to get a grant or rebate?",
+    answer:
+      "While we cannot guarantee success, our expertise and thorough application process significantly increase your chances of approval.",
+  },
+  {
+    question: "Do you manage the entire project?",
+    answer:
+      "Yes, we provide end-to-end support—from identifying funding opportunities to managing applications and connecting you with contractors.",
+  },
+  {
+    question: "How do you choose the contractors?",
+    answer:
+      "We vet contractors based on their expertise, licensing, customer reviews, and past performance in similar projects.",
+  },
+  {
+    question: "Do you work with rental properties?",
+    answer:
+      "Yes, we work with landlords and property managers to secure funding for rental property improvements.",
   },
 ];
 
@@ -55,8 +75,8 @@ const Faq = ({ question, answer }) => {
 const FAQS = () => {
   return (
     <section className="bg-green text-white">
-      <div className="section py-24">
-        <h2 className="pb-14 text-4xl font-semibold text-center">
+      <div className="section py-20">
+        <h2 className="pb-10 text-4xl font-semibold text-center">
           Frequently Asked Questions
         </h2>
         <div>

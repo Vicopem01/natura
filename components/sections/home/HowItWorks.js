@@ -5,29 +5,29 @@ import Image from "next/image";
 
 const HowItWorksArray = [
   {
-    title: "Qualify ✅",
+    title: "Find Opportunities",
     img: Qualify,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+    desc: "We identify all grants, rebates, and incentives you qualify for based on your project and location.",
   },
   {
-    title: "Renovate 🛠️",
+    title: "Simplify Applications",
     img: Renovate,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+    desc: "We take care of the paperwork and manage the entire application process for you.",
   },
   {
-    title: "Celebrate 🎉",
+    title: "Execute Your Project",
     img: Celebrate,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+    desc: "Once approved, we connect you with top contractors to finish your project efficiently.",
   },
 ];
 const HowItWorks = () => {
   return (
-    <section className="section my-20">
+    <section className="section my-20 text-center md:text-left">
       <h1 className="text-4xl font-bold">How It Works</h1>
       <p className="mt-5 mb-6">We Simplify Your Path to Green Upgrades</p>
-      <div className="flex w-full justify-between gap-6 text-center">
+      <div className="flex w-full md:justify-between gap-6 text-center flex-col md:flex-row justify-center items-center">
         {HowItWorksArray.map((el, idx) => (
-          <div className="max-w-[335px]" key={idx}>
+          <div className="max-w-[280px]" key={idx}>
             <div>
               <Image src={el.img} alt="" className="w-full h-full" />
             </div>
